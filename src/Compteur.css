@@ -1,0 +1,10 @@
+button{
+    display: flex;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 10%;
+    background-color: blanchedalmond;
+    color: black;
+    text-align: center;
+}
