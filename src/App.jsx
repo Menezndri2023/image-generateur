@@ -1,11 +1,12 @@
-import Compteur from './compteur'
+import CompteurImage from './compteur'
+
 import './App.css'
 
 function App() {
   
   return (
     <>
-      <Compteur/>
+      <CompteurImage/>
     </>
   )
 }
