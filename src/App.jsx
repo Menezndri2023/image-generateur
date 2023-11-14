@@ -1,4 +1,4 @@
-import CompteurImage from './compteur'
+import CompteurImage from './CompteurImage'
 
 import './App.css'
 

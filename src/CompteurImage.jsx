@@ -1,5 +1,5 @@
-import { useState} from 'react'
-import "./Compteur.css"
+import { useState,useEffect} from 'react'
+import "./CompteurImage.css"
 const images = [
     { id: 1, src:"https://i.pinimg.com/564x/9a/87/88/9a8788a7620bb7ea6dbe419cb69b63d0.jpg" },
     { id: 2, src: "https://i.pinimg.com/736x/99/a2/b9/99a2b982c1c75ba3a1949ed9f91f6bdc.jpg" },
@@ -8,6 +8,25 @@ const images = [
 
 const CompteurImage = () =>{ 
 const [imageItem, setImageItem] = useState([]);
+const [title,setTitle] = useState("");
+
+ useEffect(()=>{
+    console.log("welcome to the forest")
+
+
+    window.scroll({
+        top: Number.MAX_SAFE_INTEGER,
+        behavior: 'smooth',
+      })
+ },[imageItem])
+
+
+  
+ useEffect(()=>{
+    console.log("title")
+
+    document.title = title
+ },[title])
 
 const handleButtonClick = (id) => { 
     const newImage = images.find((item)=> item.id == id)
@@ -26,11 +45,12 @@ const handleButtonClick = (id) => {
     return (
        <div className='contener'>
            {imageItem.map(({id,src}) =>(
-               <img  key={id} src={src} alt='noPhoto' onClick={()=> handleImageDelete(id)}/> 
-          
-               
+               <img  key={id} src={src} alt='noPhoto' onClick={()=> handleImageDelete(id)}/>  
                ))}
-            <h1>capitaine magalus cretus</h1>
+            <h1>  capitaine magalus cretus <br />
+                :{title}
+            </h1>
+            <input type="text" onChange={(e)=>{setTitle(e.target.value)}} />
 
 
             <div className='buttonContener'>
