@@ -9,18 +9,7 @@ const images = [
 const CompteurImage = () =>{ 
 const [imageItem, setImageItem] = useState([]);
 
-
-
 const handleButtonClick = (id) => { 
-    // const x = images.filter((item)=> item.id == id)
-    // setImageItem(prev =>{  
-    //     if(x){
-    //         [...prev, x{
-    //             id:self.crypto.randomUUID(),
-    //             src: x[0].src
-    //         }]
-    //     }
-    // })
     const newImage = images.find((item)=> item.id == id)
     if(newImage){ 
       const generate = { id: self.crypto.randomUUID(),
@@ -28,17 +17,19 @@ const handleButtonClick = (id) => {
          setImageItem(prev =>[...prev, generate])
         }
        };
-;
 
-// useEffect(()=>{
-//     console.log('Image selected:', images[imageIndex]);
-//     }, [imageIndex]);
+       const handleImageDelete = (id) => {
+        setImageItem(prev => prev.filter(image => image.id !== id))
+    }
+
     
     return (
        <div className='contener'>
            {imageItem.map(({id,src}) =>(
-                <img  key={id} src={src} alt='noPhoto'/> 
-            ))}
+               <img  key={id} src={src} alt='noPhoto' onClick={()=> handleImageDelete(id)}/> 
+          
+               
+               ))}
             <h1>capitaine magalus cretus</h1>
 
 
